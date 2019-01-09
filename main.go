@@ -1,12 +1,17 @@
 package main
 
 import (
+	"archive/zip"
+	"bytes"
 	"errors"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"os"
 	"strings"
+
+	"github.com/alexmullins/zip"
 )
 
 func readPassFile(f string) ([]string, error) {
@@ -48,7 +53,7 @@ func main() {
 	// }
 	inputFile := "input.txt"
 
-	_, err := ioutil.ReadFile(inputFile)
+	text, err := ioutil.ReadFile(inputFile)
 	if err != nil {
 		print_error(inputFile + " do not exist or invalid file name, program exiting")
 		return
@@ -62,6 +67,32 @@ func main() {
 	}
 	fmt.Println(len(passwords))
 	for index := len(passwords) - 1; index >= 0; index-- {
-		fmt.Println(passwords[index])
+		contents := make([]byte, 0)
+		if index == len(passwords) {
+			contents := text
+		} else {
+			previousZipFileName := fmt.Sprintf("./%s.zip", index+1)
+			previousZipFileContent, err := ioutil.ReadFile(previousZipFileName)
+			if err != nil {
+				print_error("while reading " + previousZipFileName)
+				return
+			}
+		}
+		zipFileName := fmt.Sprintf("./%s.zip", index)
+		fzip, err := os.Create(zipFileName)
+		if err != nil {
+			print_error("while creating zip files")
+		}
+		zipw := zip.NewWriter(fzip)
+		defer zipw.Close()
+		w, err := zipw.Encrypt(`test.txt`, passwords[index])
+		if err != nil {
+			log.Fatal(err)
+		}
+		_, err = io.Copy(w, bytes.NewReader(contents))
+		if err != nil {
+			log.Fatal(err)
+		}
+		zipw.Flush()
 	}
 }
