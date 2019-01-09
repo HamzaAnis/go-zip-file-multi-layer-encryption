@@ -33,9 +33,9 @@ func main() {
 		if file_is_exists(passwordFile) {
 			fmt.Println("Working")
 		} else {
-			print_error("file do not exist, program exiting!!")
+			print_error(passwordFile + " do not exist, program exiting!!")
 		}
 	} else {
-		print_error("file do not exist, program exiting!!")
+		print_error(inputFile + " file do not exist, program exiting!!")
 	}
 }
