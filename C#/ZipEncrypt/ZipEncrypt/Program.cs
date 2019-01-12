@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Ionic.Zip;
 
 namespace ZipEncrypt
 {
@@ -20,7 +21,7 @@ namespace ZipEncrypt
         private static void Main(string[] args)
         {
             string text = "";
-            string[] passwords={};
+            string[] passwords = {};
             try
             {
                 Console.Write("Enter the name of the file to encrypt: ");
@@ -34,7 +35,6 @@ namespace ZipEncrypt
                     printError(textFileName + " do not exits, program exiting");
                     closeProgram();
                 }
-                Console.WriteLine(text);
                 Console.Write("Enter the name of the password file: ");
                 var passFileName = Console.ReadLine();
                 try
@@ -47,20 +47,34 @@ namespace ZipEncrypt
                     printError(passFileName + " do not exits, program exiting");
                     closeProgram();
                 }
-                Console.WriteLine(passwords.Length);
+                for (int i = passwords.Length - 1; i >= 0; i--)
+                {
+                    string fileName = "";
+                    if (i == passwords.Length - 1)
+                    {
+                        fileName = textFileName;
+                    }
+                    else
+                    {
+                        fileName = i + 2 + ".zip";
+                    }
+
+                    using (ZipFile zip = new ZipFile())
+                    {
+                        zip.Password = passwords[i];
+                        zip.AddFile(fileName);
+                        zip.Save(i + 1 + ".zip");
+                    }
+                }
             }
             catch (Exception e)
             {
+                printError("in zipping the file");
                 Console.WriteLine(e);
-                throw;
+                closeProgram();
             }
 
-            //            using (ZipFile zip = new ZipFile())
-            //            {
-            //                zip.Password = "456";
-            //                zip.AddFile("1.zip");
-            //                zip.Save("2.zip");
-            //            }
+
             closeProgram();
         }
     }
