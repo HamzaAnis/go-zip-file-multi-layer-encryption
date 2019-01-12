@@ -1,0 +1,11 @@
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\bin\Debug\ZipEncrypt.exe.config
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\bin\Debug\ZipEncrypt.exe
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\bin\Debug\ZipEncrypt.pdb
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\bin\Debug\DotNetZip.dll
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\bin\Debug\DotNetZip.pdb
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\bin\Debug\DotNetZip.xml
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\obj\Debug\ZipEncrypt.csprojResolveAssemblyReference.cache
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\obj\Debug\ZipEncrypt.csproj.CoreCompileInputs.cache
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\obj\Debug\ZipEncrypt.csproj.CopyComplete
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\obj\Debug\ZipEncrypt.exe
+G:\Programming Github\go-zip-file-multi-layer-encryption\C#\ZipEncrypt\ZipEncrypt\obj\Debug\ZipEncrypt.pdb
